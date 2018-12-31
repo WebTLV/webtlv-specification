@@ -1,0 +1,7 @@
+--
+-- WebTLV: Encoding of MIME types
+--
+WEBTLV-COMMON-MIME DEFINITIONS IMPLICIT TAGS ::=
+BEGIN
+
+END

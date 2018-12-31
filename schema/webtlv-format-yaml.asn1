@@ -1,0 +1,7 @@
+--
+-- WebTLV: Format for YAML data
+--
+WEBTLV-FORMAT-YAML DEFINITIONS IMPLICIT TAGS ::=
+BEGIN
+
+END

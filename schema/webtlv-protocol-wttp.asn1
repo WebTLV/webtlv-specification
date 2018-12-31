@@ -1,0 +1,37 @@
+--
+-- WebTLV Transfer Protocol
+--
+WEBTLV-PROTOCOL-WTTP DEFINITIONS IMPLICIT TAGS ::=
+BEGIN
+
+	EXPORTS
+		WTTPMethod,
+		WTTPRequest,
+		WTTPResponse;
+
+	IMPORTS
+		URI      FROM WEBTLV-COMMON-URI
+		String   FROM WEBTLV-COMMON-STRING
+		MIMEType FROM WEBTLV-COMMON-MIME;
+
+	WTTPMethod ::= ENUMERATED {
+		options(0),
+		get(1),
+		head(2),
+		post(3),
+		put(4),
+		delete(5),
+		trace(6),
+		...
+	}
+
+	WTTPRequest ::= SEQUENCE {
+		method WTTPMethod,
+		...
+	}
+
+	WTTPResponse ::= SEQUENCE {
+		...
+	}
+
+END

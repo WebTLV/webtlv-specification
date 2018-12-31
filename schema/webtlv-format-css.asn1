@@ -1,0 +1,48 @@
+--
+-- WebTLV: Format for CSS stylesheets
+--
+WEBTLV-FORMAT-CSS DEFINITIONS IMPLICIT TAGS ::=
+BEGIN
+
+	IMPORTS
+		String FROM WEBTLV-COMMON-STRING;
+
+	CSSDocument ::= [PRIVATE 0] SEQUENCE {
+		rules [0] SEQUENCE OF CSSRule,
+		...
+	}
+
+	CSSRule ::= [PRIVATE 1] SEQUENCE {
+		selectors    [0] SEQUENCE OF CSSSelector,
+		declarations [1] SEQUENCE OF CSSDeclaration,
+		...
+	}
+
+	CSSSelector ::= CHOICE {
+		element CSSElementSelector,
+		id      CSSIdSelector,
+		class   CSSClassSelector,
+		...
+	}
+
+	CSSElementSelector ::= [PRIVATE 2] SEQUENCE {
+		name String,
+		...
+	}
+
+	CSSIdSelector ::= [PRIVATE 3] SEQUENCE {
+		id String,
+		...
+	}
+
+	CSSClassSelector ::= [PRIVATE 4] SEQUENCE {
+		class String,
+		...
+	}
+
+	CSSDeclaration ::= CHOICE {
+		fnord String,
+		...
+	}
+
+END

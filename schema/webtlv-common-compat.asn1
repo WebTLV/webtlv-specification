@@ -1,0 +1,47 @@
+--
+-- WebTLV: Encoding compatibility
+--
+WEBTLV-COMMON-COMPAT DEFINITIONS IMPLICIT TAGS ::= BEGIN
+
+	EXPORTS
+		CC, IIN, CIN, AID;
+
+	-- Country code
+	--
+	-- Defined in:
+	--   ISO 3166-1
+	--
+	-- Mentioned in:
+	--   ISO/IEC 7816-4
+	--
+	CC ::= [APPLICATION 1] OCTET STRING
+
+	-- Issuer identification number
+	--
+	-- Defined in:
+	--   ISO/IEC 7812-1
+	--
+	-- Mentioned in:
+	--   ISO/IEC 7816-4
+	--   GlobalPlatform Card Specification 2.1
+	--
+	IIN ::= [APPLICATION 2] OCTET STRING
+
+	-- Card image number
+	--
+	-- Mentioned in:
+	--   GlobalPlatform Card Specification 2.1
+	--
+	CIN ::= [APPLICATION 5] OCTET STRING
+
+	-- Application identifier
+	--
+	-- Defined in:
+	--   ISO/IEC 7816-4
+	--
+	-- Mentioned in:
+	--   GlobalPlatform Card Specification 2.1 and later
+	--
+	AID ::= [APPLICATION 15] OCTET STRING
+
+END

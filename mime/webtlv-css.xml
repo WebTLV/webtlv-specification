@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<mime-info xmlns='http://www.freedesktop.org/standards/shared-mime-info'>
+  <mime-type type="application/vnd.webtlv.css">
+    <comment>CSS stylesheet (WebTLV)</comment>
+    <glob pattern="*.wtcss"/>
+  </mime-type>
+</mime-info>

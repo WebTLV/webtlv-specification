@@ -1,0 +1,12 @@
+--
+-- WebTLV: Format for text documents
+--
+WEBTLV-FORMAT-TXT DEFINITIONS IMPLICIT TAGS ::= BEGIN
+
+	IMPORTS
+		String FROM WEBTLV-COMMON-STRING;
+
+	TXTDocument ::= [PRIVATE 0] SEQUENCE {
+	}
+
+END

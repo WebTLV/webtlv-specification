@@ -1,0 +1,67 @@
+--
+-- WebTLV: Format for XML documents
+--
+WEBTLV-FORMAT-XML DEFINITIONS IMPLICIT TAGS ::= BEGIN
+
+	IMPORTS
+		String FROM WEBTLV-COMMON-STRING;
+
+	-- DOCUMENTs encode a complete XML document
+	XMLDocument ::= [PRIVATE 0] SEQUENCE {
+		root XMLNode,
+		...
+	}
+
+	-- FRAGMENTs encode an incomplete XML document
+	XMLFragment ::= [PRIVATE 1] SEQUENCE {
+		root XMLNode,
+		...
+	}
+
+	-- NODES can be text nodes or elements
+	XMLNode ::= CHOICE {
+		-- text nodes are represented as strings
+		text    String,
+		-- elements are coded explicitly
+		element XMLElement,
+		-- comments are coded explicitly
+		comment XMLComment,
+		-- processing options are coded explicitly
+		pi      XMLProcessingInstruction,
+		...
+	}
+
+	-- ELEMENTS are the main building block of XML
+	XMLElement ::= [PRIVATE 8] SEQUENCE {
+		-- tag name of the element
+		name           String,
+		-- attributes of the element
+		attributes [0] SEQUENCE OF XMLAttribute OPTIONAL,
+		-- child nodes of the element
+		children   [1] SEQUENCE OF XMLNode      OPTIONAL,
+		...
+	}
+
+	-- ATTRIBUTES add information to elements
+	XMLAttribute ::= [PRIVATE 9] SEQUENCE {
+		-- name of the attribute
+		name      String,
+		-- values are optional
+		value     String OPTIONAL,
+		...
+	}
+
+	-- COMMENTS contain remarks
+	XMLComment ::= [PRIVATE 10] SEQUENCE {
+		-- text of the comment
+		text String
+	}
+
+	-- PROCESSING INSTRUCTIONs provide information to XML processors
+	XMLProcessingInstruction ::= [PRIVATE 11] SEQUENCE {
+		target         String,
+		text           String,
+		...
+	}
+
+END

@@ -1,0 +1,16 @@
+--
+-- WebTLV: Encoding of URIs
+--
+WEBTLV-COMMON-URI DEFINITIONS IMPLICIT TAGS ::= BEGIN
+
+	EXPORTS
+		URI;
+
+	IMPORTS
+		String FROM WEBTLV-COMMON-STRING;
+
+	URI ::= CHOICE {
+		string String
+	}
+
+END

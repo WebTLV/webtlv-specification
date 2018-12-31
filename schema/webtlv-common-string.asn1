@@ -1,0 +1,28 @@
+--
+-- WebTLV: Encoding of strings
+--
+WEBTLV-COMMON-STRING DEFINITIONS IMPLICIT TAGS ::= BEGIN
+
+	EXPORTS
+		String,
+		StringLiteral,
+		StringSequence,
+		StringReference;
+
+	-- the String type should be used everywhere
+	String ::= CHOICE {
+		literal   StringLiteral,
+		sequence  StringSequence,
+		reference StringReference
+	}
+
+	-- literal strings should be coded in UTF-8
+	StringLiteral   ::=              UTF8String
+
+	-- sequence can be used to combine several string specifiers
+	StringSequence  ::= [APPLICATION 20] SEQUENCE OF String
+
+	-- references refer to a dictionary of strings
+	StringReference ::= [APPLICATION 21] OCTET STRING
+
+END
